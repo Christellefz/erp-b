@@ -29,16 +29,23 @@ router.get('/:id', (req, res) => {
 })
 router.post('/', async (req, res) => {
   try {
-    const { Designation, Pu, Code, Category, Key_word, Stock, Account_idAccount } = req.body
-   /* const salt = await bcrypt.genSalt()
+    const { Designation, Pu, Code, Category, Keywords, Stock, Linked_Account } =
+      req.body
+    /* const salt = await bcrypt.genSalt()
     const hashedPassword = await bcrypt.hash(password, salt)
     console.log(salt)
     console.log(hashedPassword)
      const compare = await bcrypt.compare(req.body.password, hashedPassword)
     console.log(compare)*/
     connection.query(
-      'INSERT INTO Products ( Designation, Pu, Code, Category, Key_word, Stock, Account_idAccount ) VALUES(?,?,?,?,?,?,?)',
-      [Designation, Pu, Code, Category, Key_word, Stock, Account_idAccount],
+      `INSERT INTO Products (Designation, 
+        Pu,
+        Code,
+        Category,
+        Keywords,
+        Stock,
+       Linked_Account, ) VALUES(?,?,?,?,?,?,?)`,
+      [Designation, Pu, Code, Category, Keywords, Stock, Linked_Account],
       err => {
         if (err) {
           console.log(err)

@@ -1,5 +1,6 @@
-const account= require('./Account')
+const account = require('./Account')
 const login = require('./Login')
 const product = require('./Products')
+//const auth = require('./Auth')
 
-module.exports ={account, login,product}
+module.exports = { account, product, login }
